@@ -16,7 +16,7 @@ body{
     /* height: 100vh;*/
     width: 57%; 
     margin: auto;
-    margin-top:20px;
+    margin-top:80px;
     margin-bottom: 40px;
 }
 
@@ -31,6 +31,7 @@ body{
 .contentbar{
     display: flex;
     justify-content: space-between;
+    font-weight: 600;
 }
 
 .progressbar{
@@ -140,41 +141,8 @@ label {
     font-weight: 700;
     position: relative;
 }
-.required::before{
-    content:"*";
+label span{
     color: red;
-    position: absolute;
-   right: 84%;
-}
-.required-long::before{
-    content:"*";
-    color: red;
-    position: absolute;
-   right: 79%;
-}
-.required-longs::before{
-    content:"*";
-    color: red;
-    position: absolute;
-   right: 79%;
-}
-.required-c_detail::before{
-    content:"*";
-    color: red;
-    position: absolute;
-   right: 65%;
-}
-.required-e_date::before{
-    content:"*";
-    color: red;
-    position: absolute;
-   right: 35%;
-}
-.required-cvv::before{
-    content:"*";
-    color: red;
-    position: absolute;
-   right: 50%;
 }
 input{
     background: #FFFFFF;
@@ -197,6 +165,7 @@ select {
     margin-left:0;
 }
 
+
 .LGA-label{
     width: 87%;
     margin-right: 0;
@@ -212,16 +181,16 @@ select {
 
 .card-details {
     display: grid;
-    grid-template-columns: 70% 20% 20%;
+    grid-template-columns: 60% 30% 20%;
 }
 
 
 .c-detail{
-    width:90%;
+    width:83%;
 }
 
 .e-date{
-  width:80%;
+  width:90%;
 }
 .e-date-input{
     width:  68%;
@@ -247,6 +216,25 @@ select {
     .card{
         height: 250px;
         width: 300px;
+    }
+
+    .content > h2 {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    .contentbar{
+        font-size: small;
+    }
+    .S-label{
+        width:100%;
+    }
+    select {
+        width:105% ;
+    }
+    .cc-body> h1 {
+        font-size: 26px !important;
+        margin-top: 15px!important;
     }
 }
 

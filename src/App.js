@@ -1,9 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import Circle from "./components/Circle"
+import Circle from "./components/Circle";
 import React, { useEffect, useState } from 'react';
-import style from './components/progress.css'
-import Tick from './components/tick.png'
+import style from './components/progress.css';
+import Tick from './components/tick.png';
 
 
 function App() {
@@ -16,7 +16,14 @@ function App() {
   const renderButton = ()=>{
     if (formStep > 2){
       return undefined
-    } else {
+    }  else if(formStep > 1) {
+      return(
+        <div className='buttons'>
+        <a className='btn' onClick={()=>{progressMove();completeFormStep()}} >Pay</a>
+        <a className="cancel" href=''>Cancel Payment</a>
+      </div>
+      )
+    }else {
       return(
       <div className='buttons'>
       <a className='btn' onClick={()=>{progressMove();completeFormStep()}} >Next</a>
@@ -26,25 +33,25 @@ function App() {
   }
   
  const content=()=>{ 
-  if (formStep > 2){
-    return undefined
-  } else {
-  return(
-  <div className="content">
-  <h2>Complete your Purchase</h2>
-  <div className='contentbar'> 
-  <p>Personal Info</p>
-  <p>Billing Info</p>
-  <p>Confirm Payment</p>
-  </div> 
-<div className="progressbar">
-
-  <div className='progress' style={{width:width+"%"}}></div>
-  {arr}
-</div>
-</div>
-)}
-  }
+        if (formStep > 2){
+          return undefined
+        } else {
+        return(
+        <div className="content">
+        <h2>Complete your Purchase</h2>
+        <div className='contentbar'> 
+        <p>Personal Info</p>
+        <p>Billing Info</p>
+        <p>Confirm Payment</p>
+        </div> 
+      <div className="progressbar">
+        
+        <div className='progress' style={{width:width+"%"}}></div>
+        {arr}
+      </div>
+      </div>
+      )}
+ }
 
   const [circle] = useState(3);
   const [active ,setActive] = useState(0);
@@ -65,11 +72,11 @@ function App() {
             { formStep === 0 && (
             <section>
 
-               <label>Name</label>
+               <label>Name </label> 
             <input type="text" placeholder='Opara Linus Ahmed' />
             
 
-            <label className='required-long' >Email Address</label>
+            <label >Email Address <span>*</span></label>
             <input type="email" placeholder='OparaLinusAhmed@devmail.com' />
             
             
@@ -97,11 +104,11 @@ function App() {
             </section>)}
            
             { formStep === 1 && (<section>
-             <label  className='required-longs'>Name on Card
+             <label>Name on Card <span>*</span>
             <input type="text" placeholder='The address of the user goes here' />
             </label>
             
-            <label  className='required'>Card Type
+            <label>Card Type <span>*</span>
                 <select>
                   <option value="1">Visa</option>
                   <option value="1">Master</option>
@@ -111,17 +118,17 @@ function App() {
                 </label>
                 <div className='card-details'>
               <div className='c-detail'>
-                <label  className='required-c_detail' >Card Details
+                <label >Card Details <span>*</span>
                 <input type="text" placeholder='44960 44960 44960 44960' />
               </label> 
               </div>
               <div className='e-date'>
-                <label className='required-e_date'>Expiry date 
+                <label>Expiry date <span>*</span>
                 <input type="text" className='e-date-input'  placeholder='04 / 09' />
               </label> 
               </div>
               <div className='cvv'>
-                <label className='required-cvv' >CVV
+                <label >CVV<span>*</span>
                 <input type="text" placeholder='923' />
               </label> 
               </div>
@@ -167,11 +174,6 @@ function App() {
            {renderButton()}
           </form>
         </div>
-        {/* <div className="button">
-        <button className="prev btn" disabled={active>0?false:true} onClick={()=>{active <=0?setActive(0):setActive(active-1)}}>Prev</button>
-        <button className="next btn"  disabled={active>=circle-1?true:false}  onClick={progressMove}>Next</button>
-        </div> */}
-       
     </div>
   );
 }
